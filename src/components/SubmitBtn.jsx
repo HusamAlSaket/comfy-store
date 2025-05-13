@@ -1,8 +1,10 @@
 import React from 'react'
 
-function SubmitBtn() {
+const SubmitBtn =({text})=> {
   return (
-    <div>SubmitBtn</div>
+    <button type='submit' className='btn btn-primary'>
+      {text}
+      </button>
   )
 }
 
