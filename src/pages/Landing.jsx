@@ -1,12 +1,21 @@
-import React from 'react'
-import { Hero } from '../components'
+import React from "react";
+import { Hero } from "../components";
+import { customFetch } from "../utils";
 
-function Landing() {
+const url = "/products?featured=true";
+
+export const loader = async () => {
+  const response = await customFetch(url);
+  const products=response.data.data;
+  console.log(response);
+  return {products};
+};
+const Landing=()=> {
   return (
     <>
-    <Hero />   
+      <Hero />
     </>
-  )
+  );
 }
 
-export default Landing
+export default Landing;
