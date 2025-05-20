@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
   About,
   Cart,
@@ -11,15 +11,16 @@ import {
   Products,
   Register,
   SingleProduct,
-} from './pages';
+} from "./pages";
 
-import { ErrorElement } from './components';
+import { ErrorElement } from "./components";
 // loaders
-import { loader as landingLoader } from './pages/Landing';
+import { loader as landingLoader } from "./pages/Landing";
+import { loader as singleProductLoader } from "./pages/SingleProduct";
 // actions
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
@@ -30,38 +31,40 @@ const router = createBrowserRouter([
         loader: landingLoader,
       },
       {
-        path: 'about',
+        path: "about",
         element: <About />,
       },
       {
-        path: 'products',
+        path: "products",
         element: <Products />,
       },
       {
-        path: 'products/:id',
+        path: "products/:id",
         element: <SingleProduct />,
+        errorElement: <ErrorElement />,
+        loader: singleProductLoader,
       },
       {
-        path: 'cart',
+        path: "cart",
         element: <Cart />,
       },
       {
-        path: 'checkout',
+        path: "checkout",
         element: <Checkout />,
       },
       {
-        path: 'orders',
+        path: "orders",
         element: <Orders />,
       },
     ],
   },
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
     errorElement: <Error />,
   },
   {
-    path: '/register',
+    path: "/register",
     element: <Register />,
     errorElement: <Error />,
   },
