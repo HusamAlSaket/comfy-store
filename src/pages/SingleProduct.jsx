@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { formatPrice } from "../utils";
 import { useState } from "react";
-import { customFetch } from "../utils";
+import { customFetch,generateAmountOptions } from "../utils";
 
 export const loader = async ({ params }) => {
   const response = await customFetch(`/products/${params.id}`);
@@ -16,6 +16,10 @@ const SingleProduct = () => {
     product.attributes;
   const dollarsAmount = formatPrice(price);
   const [productColor, setProductColor] = useState(colors[0]);
+  const [amount, setAmount] = useState(1);
+  const handleAmount = (e) => {
+    setAmount(parseInt(e.target.value));
+  };
   return (
     <section>
       <div className="text-md breadcrumbs">
@@ -64,6 +68,31 @@ const SingleProduct = () => {
                 );
               })}
             </div>
+          </div>
+          {/* {AMOUNT} */}
+          <div className="form-control w-full max-w-xs">
+            <label className="label" htmlFor="amount">
+              <h4 className="text-md font-medium tracking-wider capitalize">
+                amount
+              </h4>
+            </label>
+            <select
+              id="amount"
+              className="select select-secondary select-bordered select-md "
+              value={amount}
+              onChange={handleAmount}
+            >
+              {generateAmountOptions(10)}
+            </select>
+          </div>
+          {/* {CART BTN} */}
+          <div className="mt-10">
+            <button
+              className="btn btn-secondary btn-md"
+              onClick={() => console.log("add to cart")}
+            >
+              add to cart
+            </button>
           </div>
         </div>
       </div>

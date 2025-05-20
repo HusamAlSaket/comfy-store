@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PaginationContainer() {
+const PaginationContainer=()=> {
   return (
     <div>PaginationContainer</div>
   )

@@ -1,8 +1,12 @@
 import React from 'react'
-
-function ProductsContainer() {
+import ProductsGrid from './ProductsGrid'
+import ProductsList from './ProductsList'
+const ProductsContainer=()=> {
   return (
-    <div>ProductsContainer</div>
+    <>
+      <ProductsList/>
+    <ProductsGrid/>
+    </>
   )
 }
 
