@@ -37,11 +37,13 @@ const Filters = () => {
         size="select-sm"
       />
       {/* {PRICE} */}
-      <FormRange
-        label="select price"
-        name="price"
-        size="range-sm"
-      ></FormRange>
+      <FormRange label="select price" name="price" size="range-sm"></FormRange>
+      {/* {SHIPPING} */}
+      <FormCheckbox
+        label="free shipping"
+        name="shipping"
+        size="checkbox-sm"
+      ></FormCheckbox>
       {/* BUTTONS */}
       <button type="submit" className="btn btn-primary btn-sm">
         search
